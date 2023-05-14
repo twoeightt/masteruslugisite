@@ -1,0 +1,81 @@
+<?php
+session_start();
+?>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Городской портал</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+	<div class="conteiner">
+		<header class="header">
+			<a href="glav.html"><img src="images/home.png" alt="дом" class="logo"></a>
+			<div class="dropdown">
+				<button class="dropbtn">Муж на час</button>
+				<div class="dropdown-content">
+				  <a href="uslugi.php">Услуги</a>
+				  <a href="ceni.php">Цены</a>
+				  <a href="voprosi.php">Частые вопросы</a>
+				  <a href="contacts.php">Контакты</a>
+				</div>
+			</div>
+			<div class="header__btn">    
+				<?php if ($_SESSION['user']){    
+				?><form action="profile.php" method="get" target="_blank">
+				<button type="submit" class="header__btn_reg" >Личный кабинет</button>
+				</form>
+				<?php } else {?>
+			<form action="check.php" method="get" target="_blank">
+			<button type="submit" class="header__btn_reg" >Регистрация</button>
+			</form>
+			<form action="login.php" method="get" target="_blank">
+			<button type="submit" class="header__btn_reg" >Вход</button>
+			</form>
+			<?php }?>
+
+		</div>
+		</header>
+		<hr>
+		<div class="blocks">
+			<svg width="200" height="100">
+				<image x="0" y="0" xlink:href="images/1.png" class="banner__logos"></image>
+			</svg>
+			<svg width="200" height="100">
+				<image x="0" y="0" xlink:href="images/2.png" class="banner__logos"></image>
+		  	</svg>
+		  	<svg width="200" height="100">
+			<image x="0" y="0" xlink:href="images/3.png" class="banner__logos"></image>
+			</svg>
+		</div>
+		<div class="blocks">
+			<div class="vhod">
+				<a class="vlod__text">Авторизация</a>
+				<div class="vlod__text_pas">
+				<form >
+					<label class="vlod__text_pas" >Введите электронную почту</label>
+					<input type="text" size="21" class="input">
+					<br>
+					<label class="vlod__text_pas">Введите пароль</label>
+					<input type="password" size="35" class="input">	
+				</form>
+				</div><br>
+				<a class="vlod__text_err">Неверный логин или пароль!</a><br>
+			<div>
+				<form action="#" method="get" target="_blank">
+					<button type="submit" class="header__btn_reg" >Вход</button>
+					</form>
+			</div>
+			</div>
+		</div>	
+		<div class="conteiner__footer"></div>
+		
+	
+	</div>	
+	<footer>
+		<h3 align="center">Мы работает во всех районах Ижевска!</h3>
+	</footer>
+</body> 
+</html>
